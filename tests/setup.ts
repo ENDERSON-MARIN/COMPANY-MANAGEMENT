@@ -1,5 +1,5 @@
 import { beforeAll, afterAll, beforeEach, afterEach } from "vitest"
-import { prisma } from "../adapters/databases/prisma"
+import { prisma } from "../src/adapters/databases/prisma"
 
 beforeAll(async () => {
   console.log("🔧 Setting up test environment...")
