@@ -6,6 +6,7 @@ import {
   updateCompanySchema,
   idParamSchema,
 } from "../validators/companySchemas"
+import { AppError } from "../../core/errors/AppError"
 
 export class CompanyController {
   constructor(private companyService: CompanyService) {}
@@ -20,6 +21,11 @@ export class CompanyController {
         return res.status(400).json({
           error: "Validation error",
           details: error.issues,
+        })
+      }
+      if (error instanceof AppError) {
+        return res.status(error.statusCode).json({
+          error: error.message,
         })
       }
       throw error
@@ -43,6 +49,11 @@ export class CompanyController {
           details: error.issues,
         })
       }
+      if (error instanceof AppError) {
+        return res.status(error.statusCode).json({
+          error: error.message,
+        })
+      }
       throw error
     }
   }
@@ -60,6 +71,11 @@ export class CompanyController {
           details: error.issues,
         })
       }
+      if (error instanceof AppError) {
+        return res.status(error.statusCode).json({
+          error: error.message,
+        })
+      }
       throw error
     }
   }
@@ -74,6 +90,11 @@ export class CompanyController {
         return res.status(400).json({
           error: "Validation error",
           details: error.issues,
+        })
+      }
+      if (error instanceof AppError) {
+        return res.status(error.statusCode).json({
+          error: error.message,
         })
       }
       throw error
