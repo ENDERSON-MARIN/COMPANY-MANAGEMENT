@@ -1,10 +1,12 @@
-import { Request, Response } from "express"
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Request, Response, NextFunction } from "express"
 import { AppError } from "../../core/errors/AppError"
 
 export const errorHandler = (
   err: Error,
   req: Request,
-  res: Response
+  res: Response,
+  _next: NextFunction
 ): Response => {
   if (err instanceof AppError) {
     return res.status(err.statusCode).json({
