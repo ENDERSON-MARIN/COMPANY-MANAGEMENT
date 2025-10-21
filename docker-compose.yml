@@ -10,6 +10,21 @@ services:
       POSTGRES_DB: company_db
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  postgres_test:
+    image: postgres:17
+    container_name: company_db_test
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: company_db_test
+    volumes:
+      - postgres_test_data:/var/lib/postgresql/data
+
 volumes:
   postgres_data:
+    driver: local
+  postgres_test_data:
     driver: local
