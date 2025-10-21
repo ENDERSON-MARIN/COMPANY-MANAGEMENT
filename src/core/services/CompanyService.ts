@@ -25,7 +25,10 @@ export class CompanyService {
     const existingCompany = await this.companyRepository.findByCnpj(data.cnpj)
 
     if (existingCompany) {
-      throw new AppError("Company with this CNPJ already exists", 409)
+      throw new AppError(
+        `Company with this CNPJ ${data.cnpj} already exists`,
+        409
+      )
     }
 
     const company = new Company(
@@ -64,7 +67,10 @@ export class CompanyService {
     if (data.cnpj && data.cnpj !== company.cnpj) {
       const existingCompany = await this.companyRepository.findByCnpj(data.cnpj)
       if (existingCompany) {
-        throw new AppError("Company with this CNPJ already exists", 409)
+        throw new AppError(
+          `Company with this CNPJ ${data.cnpj} already exists`,
+          409
+        )
       }
     }
 
