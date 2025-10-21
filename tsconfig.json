@@ -12,7 +12,12 @@
     "esModuleInterop": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "types": ["vitest/globals"]
+    "paths": {
+      "@/*": ["./src/*"],
+      "@tests/*": ["./tests/*"]
+    },
+    "types": ["vitest/globals", "node"]
   },
-  "include": ["src"]
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
