@@ -5,9 +5,9 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const phoneRegex = /^\d{10,11}$/
 
 export const createCompanySchema = z.object({
-  name: z.string().min(3, "Name must be at least 3 characters").max(255),
-  cnpj: z.string().regex(cnpjRegex, "CNPJ must have 14 digits"),
-  email: z.string().regex(emailRegex, "Invalid email format"),
+  name: z.string().trim().min(3, "Name must be at least 3 characters").max(255),
+  cnpj: z.string().trim().regex(cnpjRegex, "CNPJ must have 14 digits"),
+  email: z.string().trim().regex(emailRegex, "Invalid email format"),
   phone: z
     .string()
     .regex(phoneRegex, "Phone must have 10 or 11 digits")
@@ -21,8 +21,12 @@ export const updateCompanySchema = z.object({
     .min(3, "Name must be at least 3 characters")
     .max(255)
     .optional(),
-  cnpj: z.string().regex(cnpjRegex, "CNPJ must have 14 digits").optional(),
-  email: z.string().regex(emailRegex, "Invalid email format").optional(),
+  cnpj: z
+    .string()
+    .trim()
+    .regex(cnpjRegex, "CNPJ must have 14 digits")
+    .optional(),
+  email: z.string().trim().regex(emailRegex, "Invalid email format").optional(),
   phone: z
     .string()
     .regex(phoneRegex, "Phone must have 10 or 11 digits")

@@ -8,11 +8,15 @@
     "lib": ["ES2024"],
     "strict": true,
     "outDir": "dist",
-    "rootDir": "src",
     "esModuleInterop": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "types": ["vitest/globals"]
+    "paths": {
+      "@/*": ["./src/*"],
+      "@tests/*": ["./tests/*"]
+    },
+    "types": ["vitest/globals", "node"]
   },
-  "include": ["src"]
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

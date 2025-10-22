@@ -72,9 +72,7 @@ export class PrismaCompanyRepository implements ICompanyRepository {
       data.cnpj,
       data.email,
       data.phone,
-      data.address,
-      data.city,
-      data.state
+      data.address
     )
   }
 }
