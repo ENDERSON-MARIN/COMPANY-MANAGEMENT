@@ -65,7 +65,7 @@ describe("CompanyService", () => {
 
       await expect(service.create(createDTO)).rejects.toThrow(AppError)
       await expect(service.create(createDTO)).rejects.toThrow(
-        `Company with this CNPJ ${createDTO.cnpj} already exists`
+        "Company with this CNPJ already exists"
       )
       expect(mockRepository.create).not.toHaveBeenCalled()
     })
@@ -208,9 +208,7 @@ describe("CompanyService", () => {
 
       await expect(
         service.update("123", { cnpj: "22222222222222" })
-      ).rejects.toThrow(
-        `Company with this CNPJ ${otherCompany.cnpj} already exists`
-      )
+      ).rejects.toThrow("Company with this CNPJ already exists")
     })
 
     it("should allow updating to same CNPJ", async () => {
