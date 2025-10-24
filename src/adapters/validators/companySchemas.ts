@@ -2,16 +2,12 @@ import { z } from "zod"
 
 const cnpjRegex = /^\d{14}$/
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-const phoneRegex = /^\d{10,11}$/
 
 export const createCompanySchema = z.object({
   name: z.string().trim().min(3, "Name must be at least 3 characters").max(255),
   cnpj: z.string().trim().regex(cnpjRegex, "CNPJ must have 14 digits"),
   email: z.string().trim().regex(emailRegex, "Invalid email format"),
-  phone: z
-    .string()
-    .regex(phoneRegex, "Phone must have 10 or 11 digits")
-    .optional(),
+  phone: z.string().optional(),
   address: z.string().max(255).optional(),
 })
 
@@ -27,10 +23,7 @@ export const updateCompanySchema = z.object({
     .regex(cnpjRegex, "CNPJ must have 14 digits")
     .optional(),
   email: z.string().trim().regex(emailRegex, "Invalid email format").optional(),
-  phone: z
-    .string()
-    .regex(phoneRegex, "Phone must have 10 or 11 digits")
-    .optional(),
+  phone: z.string().optional(),
   address: z.string().max(255).optional(),
 })
 

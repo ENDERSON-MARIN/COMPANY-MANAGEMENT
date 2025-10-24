@@ -2,14 +2,6 @@
 
 API REST para consulta e gestão simplificada de empresas, desenvolvida com Node.js, TypeScript, Express, PostgreSQL e Prisma ORM, seguindo os princípios da Arquitetura Hexagonal.
 
-[![Node.js](https://img.shields.io/badge/Node.js-22.x-green.svg)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue.svg)](https://www.typescriptlang.org/)
-[![Express](https://img.shields.io/badge/Express-5.1-lightgrey.svg)](https://expressjs.com/)
-[![Prisma](https://img.shields.io/badge/Prisma-6.17-2D3748.svg)](https://www.prisma.io/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791.svg)](https://www.postgresql.org/)
-
----
-
 ## 📋 Índice
 
 - [Tecnologias](#-tecnologias)
@@ -169,7 +161,7 @@ pnpm prisma:migrate
 pnpm dev
 ```
 
-A API estará disponível em: **http://localhost:3000**
+A API estará disponível em: **http://localhost:8080**
 
 ### Produção
 
